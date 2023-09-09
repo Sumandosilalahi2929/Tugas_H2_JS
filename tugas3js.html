@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 3 pada js</title>
+</head>
+
+<body>
+    <table style="padding : 10; text-align: center; width: 100%">
+        <thead>
+            <tr style="background-color:black; color: white;">
+                <th>No</th>
+                <th>Nama</th>
+                <th>Jabatan</th>
+                <th>Gaji Pokok</th>
+                <th>Agama</th>
+                <th>Tunjangan Jabatan</th>
+                <th>Tunjangan Kesehatan</th>
+                <th>Gaji Kotor</th>
+                <th>Zakat</th>
+                <th>Take Home Pay</th>
+            </tr>
+        </thead>
+        <tbody>
+            <script>
+                let p1 = { "nama": "Pegawai1" };
+                let p2 = { "nama": "Pegawai2" };
+                let p3 = { "nama": "Pegawai3" };
+                let p4 = { "nama": "Pegawai4" };
+                let p5 = { "nama": "Pegawai5" };
+                let p6 = { "nama": "Pegawai6" };
+                let p7 = { "nama": "Pegawai7" };
+                let p8 = { "nama": "Pegawai8" };
+                let p9 = { "nama": "Pegawai9" };
+                let p10 = { "nama": "Pegawai10" };
+                let pegawai = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10];
+
+                //multi kondisi pada jabatan
+               var no = 1;
+                for (p of pegawai) {
+                    if(p.nama == "Pegawai1" || p.nama == "Pegawai2"){
+                        Jabatan = "Manager";
+                    }else if ( p.nama == "Pegawai3" || p.nama == "Pegawai4" || p.nama == "Pegawai5"){
+                        Jabatan = "Asisten Manager";
+                    }else if (p.nama == "Pegawai6" || p.nama == "Pegawai7" || p.nama == "Pegawai8") {
+                        Jabatan = "Supervisior";
+                    }else if (p.nama == "Pegawai9" || p.nama == "Pegawai10") {
+                        Jabatan = "Staff";
+                    } 
+                
+
+                // Switch Case Gaji Pokok
+                switch (Jabatan) {
+                    case "Manager": Gapok = 15000000; break;
+                    case "Asisten Manager": Gapok = 10000000; break;
+                    case "Supervisior": Gapok = 7000000; break;
+                    case "Staff": Gapok = 4000000; break;
+                }
+                
+                //Tunjangan
+                
+                let tunjangan_jabatan = 0.20 * Gapok;
+                let tunjangan_kesehatan = 0.10 * Gapok;
+                let Gaji_kotor = Gapok + tunjangan_jabatan + tunjangan_kesehatan
+                
+                //menentukan warna
+                var agama, warna,font;
+                font = (no % 2==0) ? 'white' : 'black';
+                agama = (no % 2==0) ? 'Non Muslim' : 'Muslim';
+                warna = (no % 2==0) ? 'blue' : 'yellow';
+
+                //penambahan zakat jika lebih besar dari 7 jt
+                var minimal = 7000000;
+                let zakat = " " ;
+                if(agama == "Muslim" && Gaji_kotor >= minimal) 
+                zakat = 0.025 * Gaji_kotor;
+                else zakat = 0; 
+
+                let take_home = Gaji_kotor - zakat;
+
+                
+                document.write(`<tr bgcolor="${warna}"  style="color: ${font};">
+                                <td>${no++}</td>
+                                <td>${p.nama}</td>
+                                <td>${Jabatan}</td>
+                                <td>${Gapok}</td>
+                                <td>${agama}</td>
+                                <td>${tunjangan_jabatan}</td>
+                                <td>${tunjangan_kesehatan}</td>
+                                <td>${Gaji_kotor}</td>
+                                <td>${zakat}</td>
+                                <td>${take_home}</td>  `);
+                }
+            </script>
+        </tbody>
+    </table>
+</body>
+
+</html>
