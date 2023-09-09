@@ -1,0 +1,43 @@
+<script>
+    ///biodata Pegawai
+    let pegawai = "ridwan";
+    let jabatan = "manager";
+    let status = "menikah";
+    let gapok = "gaji pokok";
+
+    //Gaji jabatan
+    switch (jabatan) {
+        case 'manager': gapok = 15000000; break;
+        case 'asisten manager': gapok = 10000000; break;
+        case 'staff': gapok = 5000000; break;
+    }
+
+    //Tunjangan Jabatan
+    let tunjangan_jabatan = 0;
+    if (jabatan == 'manager') tunjangan_jabatan = 0.15 * gapok;
+    else if (jabatan == 'asisten manager') tunjangan_jabatan = 0.20 * gapok;
+    else if (jabatan == 'staff') tunjangan_jabatan = 0.10 * gapok;
+
+    //Tunjangan BPJS
+    let tunjangan_bpjs = 1;
+    if (jabatan == 'manager') tunjangan_bpjs = 0.10 * gapok;
+    else if (jabatan == 'asisten manager') tunjangan_bpjs = 0.10 * gapok;
+    else if (jabatan == 'staff') tunjangan_bpjs = 0.10 * gapok;
+
+    //Tunjangan keluarga
+    let tunjangan_keluarga = 2;
+    if (jabatan == 'manager') tunjangan_keluarga = 0.20 * gapok;
+    else if (jabatan == 'asisten manager') tunjangan_keluarga = 0.20 * gapok;
+    else if (jabatan == 'staff') tunjangan_keluarga = 0.20 * gapok;
+
+    //Total
+
+    let total_gaji = gapok + tunjangan_jabatan + tunjangan_bpjs + tunjangan_keluarga
+
+        /// cetak
+
+    document.write("<h1> Data Pegawai </h1>");
+    document.write("<br> Pegawai : " + pegawai + "<br> Jabatan : " + jabatan + "<br> Status : " + status + "<br> Gaji Pokok : " + gapok + "<br> Tunjangan Jabatan : " + tunjangan_jabatan+ "<br> Tunjangan Bpjs : " + tunjangan_bpjs + "<br> Tunjangan Keluarga : " + tunjangan_keluarga + "<br> Total Gaji : " + total_gaji);
+
+    </script>
+
