@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 4js</title>
+</head>
+<body>
+    <form id="frm">
+        <table style="width: 60%; background-color: aqua; border: 1px solid; text-align: center ; " >
+            <tr>
+                <th colspan="2">Toko Online</th>
+            </tr>
+            <tr>
+                <td><label for ="">Nama</label></td>
+                <td><input type="text" name="nama" id="" placeholder="Masukkan Nama Anda"> </td>
+            </tr>
+            <tr>
+                  <td><label for ="">Produk</label></td>
+                  <td><select name="produk" id="">
+                    <option value="TV">TV</option>
+                    <option value="AC">AC</option>
+                    <option value="Kulkas">Kulkas</option>
+                    </select></td>
+                </select>
+            </tr>
+            <tr>
+                <td><label for="">Jumlah</label></td>
+                <td><input type="number" name="jumlah" id="" placeholder="Jumlah yang ingin dibeli"> </td>
+            </tr>
+            <tr>
+                <th colspan="2"><button type="button" name="proses" onclick="dataProduk()" value="Beli" style="background-color: rgb(52, 201, 26); font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Beli</button></th>
+            </tr>
+        </table>
+    </form>
+    </script>
+
+<script>
+    function dataProduk() {
+        let form = document.getElementById('frm');
+        let Pembeli = form.nama.value;
+        let produk = form.produk.value;
+        let Jmlhproduk = form.jumlah.value;
+        
+        switch (produk) {
+            case "TV": Price = 2000000; break;
+            case "AC": Price = 3000000; break;
+            case "Kulkas": Price = 4000000; break;
+            default: Price = 0; break;
+        }
+        let harga_Kotor = Price * Jmlhproduk;
+            let diskon  = 0;
+            if (produk == "Kulkas" || Jmlhproduk >= 3) {
+                diskon = 0.3*harga_Kotor;
+            }else if (produk == "AC" || Jmlhproduk >= 3){
+                diskon = 0.2*harga_Kotor;
+            }
+            else{
+                diskon = 0.1 * harga_Kotor;
+            }
+            let PPN = [harga_Kotor - diskon] * 0.1;
+            let harga_bayar = harga_Kotor - diskon + PPN;
+
+        
+           alert(`
+                Data Pembelian
+           Nama         :  ${Pembeli}  
+           Produk       :  ${produk} 
+           Jumlah       :  ${Jmlhproduk} 
+           Harga        :  ${Price}
+           Harga Kotor  :  ${harga_Kotor}
+           Diskon       :  ${diskon}
+           PPN          :  ${PPN} 
+           Harga Bayar  :  ${harga_bayar}
+                         `);
+        }
+</script>
+</body>
+</html>
