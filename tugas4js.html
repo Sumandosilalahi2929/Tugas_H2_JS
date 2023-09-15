@@ -58,7 +58,7 @@
             else{
                 diskon = 0.1 * harga_Kotor;
             }
-            let PPN = [harga_Kotor - diskon] * 0.1;
+            let PPN = (harga_Kotor - diskon) * 0.1;
             let harga_bayar = harga_Kotor - diskon + PPN;
 
         

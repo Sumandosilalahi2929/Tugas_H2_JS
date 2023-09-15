@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 5</title>
+</head>
+
+<body>
+    <h1>Tugas</h1>
+    <script>
+        class gempa {
+            constructor(lokasi, skala) {
+                this.skala = skala;
+                this.lokasi = lokasi;
+            }
+            dampak(){
+                let kerusakan = " "
+                if (this.skala > 0 && this.skala <= 2) kerusakan = "Tidak terasa";
+                else if (this.skala > 2 && this.skala <= 4) kerusakan = "Bangunan retak-retak";
+                else if (this.skala > 4 && this.skala <= 6) kerusakan = "Bangunan roboh";
+                else if (this.skala > 6) kerusakan = "Bangunan roboh dan berpotensi Tsunami";
+                else kerusakan = " ";
+        
+                document.write('Lokasi Gempa : ', this.lokasi);
+                document.write('<br>Skala Gempa : ', this.skala);
+                document.write('<br>Dampak Gempa :  ' + kerusakan);
+                document.write('<br>----------------------------- <br>');
+            }
+            
+            
+        }
+        let d1 = new gempa (' Sumatera Utara ', 2);
+        let d2 = new gempa (' Jawa Tengah ', 1);
+        let d3 = new gempa (' Jawa Timur ', 7);
+        let d4 = new gempa (' Nusa Tenggara Timur ', 3);
+        let d5 = new gempa (' Nusa Tenggara Barat ', 4);
+        let d6 = new gempa (' Banten ', 6);
+
+
+
+        d1.dampak();
+        d2.dampak();
+        d3.dampak();
+        d4.dampak();
+        d5.dampak();
+        d6.dampak();
+
+
+    </script>
+</body>
+
+</html>
