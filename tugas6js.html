@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas6</title>
+    <link rel="stylesheet" href="tugas6.css" />
+    <script src="code.jquery-3.7.1.min.js"></script>
+
+</head>
+
+<body>
+    <ul>
+        <li><a href="#" class="tugas6" data-bidang="profile">Profile</a></li>
+        <li><a href="#" class="tugas6" data-bidang="motohidup">Moto Hidup</a></li>
+        <li><a href="#" class="tugas6" data-bidang="keahlian">Keahlian</a></li>
+    </ul>
+
+    <div id="profile" class="konten">
+        <img src="/img/profil.jpeg" alt="gambarw" width="300px">
+        <p>Saya Sumando Silalahi. Saya mahasiswa jurusan Sistem Informasi tingkat Semester VII <br>
+             di Universitas Mikroskil Kota Medan, Sumatera Utara.</p>
+    </div>
+
+    <div id="motohidup" class="konten">
+        <h3>Moto Hidup</h3>
+        <p>Moto hidup saya adalah Jika kamu percaya pada dirimu sendiri, dengan sedikit keajaiban semua impianmu bisa
+            menjadi kenyataan karena Keyakinan pada diri sendiri adalah kunci untuk mencapai impian dan tujuan. Ketika
+            kamu memiliki keyakinan yang kuat dalam kemampuan dan potensi, dirimu cenderung lebih berani mengambil
+            tindakan yang diperlukan untuk mencapai apa yang kamu inginkan.</p>
+            <img src="/img/moto.jpg"width="300px">
+    </div>
+
+    <div id="keahlian" class="konten">
+        <h3>Keahlian</h3>
+        <p>Saya memiliki keahlian di bidang dalam dunia bisnis dan teknologi informasi.</p>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $(".tugas6").click(function () {
+                var bidang = $(this).data("bidang");
+                $(".konten").hide();
+                $("#" + bidang).show();
+            });
+        });
+    </script>
+</body>
+
+</html>
