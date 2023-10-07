@@ -1,0 +1,31 @@
+// table pembelian yang references ke produk 
+
+CREATE TABLE pembelian ( 
+    tanggal date NOT null, 
+    nomor int PRIMARY KEY AUTO_INCREMENT, 
+    produk_id int NOT NULL REFERENCES produk(id), 
+    jumlah int NOT NULL, 
+    harga int NOT NULL, 
+    vendor_id int NOT NULL);
+
+// table pembelian yang references ke produk 
+CREATE TABLE vendor ( 
+    nomor int PRIMARY KEY NOT NULL REFERENCES pembelian(vendor_id), 
+    nama varchar(30) NOT NULL UNIQUE, 
+    kota varchar(30) NOT NULL, 
+    kontak int NOT NULL);
+
+//Menambah data
+INSERT INTO pembelian (tanggal, nomor, produk_id, jumlah, harga, vendor_id) VALUES 
+('2023-10-01', 1, 111, 10, 500000, 121), 
+('2023-10-02', 2, 222, 5, 300000, 132), 
+('2023-10-03', 3, 333, 8, 750000, 123), 
+('2023-10-04', 4, 444, 15, 120000, 124), 
+('2023-10-05', 5, 555, 12, 900000, 125);
+
+INSERT INTO vendor (nomor, nama, kota, kontak) VALUES
+    (1,'Vendor A', 'Jakarta', 882121),
+    (2,'Vendor B', 'Surabaya', 212121),
+    (3,'Vendor C', 'Medan', 122822),
+    (4,'Vendor D', 'Semarang', 121221),
+    (5,'Vendor E', 'Bandung', 122121);
