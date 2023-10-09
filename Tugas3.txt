@@ -45,57 +45,57 @@ create table pembelian (
     vendor_id int not null references vendor(id));
 
 //worksheet 2.2
-1.	Tampilkan data produk yang stoknya 3 dan 10
+1.Tampilkan data produk yang stoknya 3 dan 10
 SELECT * from produk WHERE stok=3 OR stok=10;
 
-2.	Tampilkan data produk yang harga jualnya kurang dari 5 juta tetapi lebih dari 500 ribu
+2.Tampilkan data produk yang harga jualnya kurang dari 5 juta tetapi lebih dari 500 ribu
 SELECT * FROM produk WHERE harga_jual < 5000000 AND harga_jual > 500000;
 
-3.	Tampilkan data produk yang harus segera ditambah stoknya
+3.Tampilkan data produk yang harus segera ditambah stoknya
 SELECT * FROM produk WHERE min_stok > stok;
 
-4.	Tampilkan data pelanggan mulai dari yang paling muda
+4.Tampilkan data pelanggan mulai dari yang paling muda
 SELECT * FROM pelanggan ORDER BY tgl_lahir DESC;
 
-5.	Tampilkan data pelanggan yang lahirnya di Jakarta dan gendernya perempuan
+5.Tampilkan data pelanggan yang lahirnya di Jakarta dan gendernya perempuan
 SELECT * FROM pelanggan WHERE tmp_lahir='jakarta' AND jk='P';
 
 6.	Tampilkan data pelanggan yang ID nya 2, 4 dan 6
 SELECT * from pelanggan WHERE id IN (2,4,6);
 
-7.	Tampilkan data produk yang harganya antara 500 ribu sampai 6 juta
+7.Tampilkan data produk yang harganya antara 500 ribu sampai 6 juta
 SELECT * FROM produk WHERE harga_jual >= 500000 AND harga_jual<= 6000000;
 
 //worksheet 2.3
 
-1. Menampilkan produk yang kode awalnya bukan huruf M
+1.Menampilkan produk yang kode awalnya bukan huruf M
 select * from produk where kode not like 'M%';
 
-2. menampilkan produk-produk televisi
+2.menampilkan produk-produk televisi
 select * from produk where kode like 'TV%';
 
-3. Tampilkan pelanggan mengandung huruf 'SA'
+3.Tampilkan pelanggan mengandung huruf 'SA'
 select * from pelanggan where nama like '%SA%';
 
-4. Tampilkan pelanggan yang lahirnya bukan di Jakarta dan mengandung huruf ‘yo‘
+4.Tampilkan pelanggan yang lahirnya bukan di Jakarta dan mengandung huruf ‘yo‘
 select * from pelanggan where tmp_lahir = 'Jakarta' AND nama like '%yo%';
 
-5. Tampilkan pelanggan yang karakter huruf ke – 2 nya adalah A
+5.Tampilkan pelanggan yang karakter huruf ke – 2 nya adalah A
 select * from pelanggan where nama like '_a%';
 
 
 //worksheet 2.4
-1. Tampilkan produk yang paling murah
+1.Tampilkan produk yang paling murah
  SELECT *FROM produk ORDER BY harga_beli ASC;
 
-2. Tampilkan produk yang stoknya paling banyak
+2.Tampilkan produk yang stoknya paling banyak
   SELECT *FROM produk order by stok desc limit 1;
 
-3. Tampilkan dua produk yang stoknya paling sedikit
+3.Tampilkan dua produk yang stoknya paling sedikit
 SELECT *FROM produk order by stok asc limit 1;
 
-4. Tampilkan pelanggan yang paling muda
+4.Tampilkan pelanggan yang paling muda
 select * from pelanggan order by tgl_lahir desc limit 1;
 
-5. Tampilkan pelanggan yang paling tua
+5.Tampilkan pelanggan yang paling tua
 select * from pelanggan order by tgl_lahir asc limit 1;
