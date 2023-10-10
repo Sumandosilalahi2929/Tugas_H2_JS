@@ -1,20 +1,20 @@
 //INSERT  data pada table pelanggan
 INSERT INTO `pelanggan` (`id`, `kode`, `nama`, `jk`, `tmp_lahir`, `tgl_lahir`, `email`, `kartu_id`) VALUES 
-(NULL, 'D01', 'Pelanggan01', 'L', 'Medan', '2000-10-21', 'pelanggan01@gmail.com', '1'), 
-(NULL, 'D02', 'Pelanggan02', 'L', 'Jakarta', '2001-02-02', 'pelanggan01@gmail.com', '1'), 
-(NULL, 'D03', 'Pelanggan03', 'L', 'Kalimantan', '2002-10-21', 'pelanggan01@gmail.com', '3'), 
-(NULL, 'D04', 'Pelanggan04', 'P', 'Bandung', '2003-10-29', 'pelanggan01@gmail.com', '2'), 
-(NULL, 'D05', 'Pelanggan05', 'P', 'Jakarta', '2005-11-12', 'pelanggan01@gmail.com', '2'), 
-(NULL, 'D06', 'Pelanggan06', 'P', 'Bandung', '2004-01-11', 'pelanggan01@gmail.com', '4');
-(NULL, 'D07', 'Pelanggan07', 'P', 'Bandung', '2002-01-12', 'pelanggan01@gmail.com', '4');
+('D01', 'Pelanggan01', 'L', 'Medan', '2000-10-21', 'pelanggan01@gmail.com', '1'), 
+('D02', 'Pelanggan02', 'L', 'Jakarta', '2001-02-02', 'pelanggan01@gmail.com', '1'), 
+('D03', 'Pelanggan03', 'L', 'Kalimantan', '2002-10-21', 'pelanggan01@gmail.com', '3'), 
+('D04', 'Pelanggan04', 'P', 'Bandung', '2003-10-29', 'pelanggan01@gmail.com', '2'), 
+('D05', 'Pelanggan05', 'P', 'Jakarta', '2005-11-12', 'pelanggan01@gmail.com', '2'), 
+('D06', 'Pelanggan06', 'P', 'Bandung', '2004-01-11', 'pelanggan01@gmail.com', '4');
+('D07', 'Pelanggan07', 'P', 'Bandung', '2002-01-12', 'pelanggan01@gmail.com', '4');
 
 //INSERT 5 data pada data produk
 INSERT INTO `produk` (`id`, `kode`, `nama`, `harga_beli`, `harga_jual`, `stok`, `min_stok`, `jenis_produk_id`) VALUES 
-(NULL, 'KP01', 'Komputer', '90000000', '10000000', '2', '2', '3'), 
-(NULL, 'HP02', 'Handphone Asus', '2500000', '3000000', '7', '2', '2'), 
-(NULL, 'HP02', 'Handphone Vivo ', '3000000', '3500000', '6', '2', '4'), 
-(NULL, 'GL03', 'Gelang', '20000', '20000', '20', '2', '3'), 
-(NULL, 'SPT04', 'Sepatu', '1000000', '1500000', '8', '4', '2');
+('KP01', 'Komputer', '90000000', '10000000', '2', '2', '3'), 
+('HP02', 'Handphone Asus', '2500000', '3000000', '7', '2', '2'), 
+('HP02', 'Handphone Vivo ', '3000000', '3500000', '6', '2', '4'), 
+('GL03', 'Gelang', '20000', '20000', '20', '2', '3'), 
+('SPT04', 'Sepatu', '1000000', '1500000', '8', '4', '2');
 
 //menyesaikan worksheet 1
 
