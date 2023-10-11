@@ -1,0 +1,80 @@
+//soal 3.2
+
+//1.jumlah pelanggan yang Menurut tahun lahirnya
+    SELECT COUNT(tgl_lahir) FROM pelanggan WHERE YEAR(tgl_lahir) = 1998;
+
+ //2. Menampilkan jumlah pelanggan perempuan yang tempat lahirnya di jakarta
+//cobaan 1
+    SELECT COUNT(jk) FROM pelanggan where jk ='P' AND tmp_lahir = 'jakarta';
+
+ //3.Berapa jumlah total stok semua produk yang harga jualnya dibawah 10rb
+    SELECT COUNT(harga_jual) FROM produk WHERE harga_jual < 10000;
+
+//4.Ada berapa produk yang mempunyai kode awal K
+ s  elect count(kode) from produk where left(kode,1) = 'k';
+
+ //5.Berapa harga jual rata-rata produk yang diatas 1jt
+    select avg(harga_jual) from produk where harga_jual > 1000000;
+
+  //6.Tampilkan jumlah stok yang paling besar
+    select max(stok) AS "Jumlah Terbesar" from produk;
+
+//7.Ada berapa produk yang stoknya kurang dari minimal stok
+    select count(stok) from produk where min_stok =2;
+
+ //8.Berapa total asset dari keseluruhan produk
+    SELECT SUM(harga_jual * stok) AS "Total Aset" FROM produk;
+
+
+    //SOAL 3.3
+    //1 .Menampilkan data produk : id, nama, stok dan informasi jika stok telah sampai 
+    batas minimal atau kurang dari minimum stok dengan informasi ‘segera belanja’ 
+    jika tidak ‘stok aman’.
+
+  select id,nama,stok,
+    -> case
+    -> when stok > min_stok then 'aman'
+    -> else 'segera belanja'
+    -> end as informasi from produk;
+
+    //2.Tampilkan data pelanggan: id, nama, umur dan kategori umur : jika umur 
+        < 17 → ‘muda’ , 17-55 → ‘Dewasa’, selainnya ‘Tua’
+        SELECT id, nama, tgl_lahir, CASE WHEN tgl_lahir IS NOT NULL
+        THEN CASE WHEN TIMESTAMPDIFF(YEAR, tgl_lahir, CURDATE()) < 17 
+        THEN 'Muda' WHEN TIMESTAMPDIFF(YEAR, tgl_lahir, CURDATE()) >= 17
+        AND TIMESTAMPDIFF(YEAR, tgl_lahir, CURDATE()) <= 55 THEN 'Dewasa' ELSE 'Tua' 
+        END ELSE 'Umur tidak diketahui' END AS kategori_umur FROM pelanggan;
+
+        //3.Tampilkan data produk: id, kode, nama, dan bonus untuk kode ‘TV01’ →’DVD Player’ , ‘K001’ → ‘Rice Cooker’ selain dari diatas ‘Tidak Ada’
+        SELECT id, kode, nama, CASE WHEN kode = 'TV01' THEN 'DVD Player' WHEN kode = 'K001' THEN 'Rice Cooker' ELSE 'Tidak Ada' END AS bonus FROM produk;
+
+        //SOAL 3.4
+        //1.Tampilkan data statistik jumlah tempat lahir pelanggan
+        SELECT tmp_lahir, COUNT(tmp_lahir) as jumlah_pelanggan FROM pelanggan GROUP BY tmp_lahir;
+
+        //2.Tampilkan jumlah statistik produk berdasarkan jenis produk
+        SELECT jenis_produk_id, COUNT(jenis_produk_id) as jumlah_produk FROM produk GROUP BY jenis_produk_id;
+
+        //3.Tampilkan data pelanggan yang usianya dibawah rata usia pelanggan
+        SELECT id, nama, tgl_lahir FROM pelanggan WHERE (DATEDIFF(CURDATE(), tgl_lahir) / 365) < (SELECT AVG(DATEDIFF(CURDATE(), tgl_lahir) / 365) FROM pelanggan);
+
+        //4.Tampilkan data produk yang harganya diatas rata-rata harga produk
+         SELECT id, kode, nama, harga_jual FROM produk WHERE harga_jual > (SELECT AVG(harga_jual) FROM produk);
+         
+         //5.Tampilkan data pelanggan yang memiliki kartu dimana iuran tahunan kartu diatas 90rb
+         SELECT pelanggan.id, pelanggan.nama, kartu.iuran FROM pelanggan AS pelanggan INNER JOIN kartu AS kartu ON pelanggan.kode = kartu.id WHERE kartu.iuran > 90000;
+
+         //6.Tampilkan statistik data produk dimana harga produknya dibawah rata-rata harga produk secara keseluruhan
+         SELECT AVG(harga_jual) AS rata_rata_harga, MIN(harga_jual) AS harga_terendah, MAX(harga_jual) AS harga_tertinggi, COUNT(*) AS jumlah_produk_di_bawah_rata_rata FROM produk WHERE harga_jual < (SELECT AVG(harga_jual) FROM produk);
+
+         //7.Tampilkan data pelanggan yang memiliki kartu dimana diskon kartu yang diberikan diatas 3%
+         SELECT Pelanggan.* FROM Pelanggan AS Pelanggan JOIN Kartu AS Kartu ON Pelanggan.id = Kartu.id WHERE Kartu.Diskon > 0.03;
+
+
+         //membuat  tabel
+         CREATE TABLE personel (
+         id_personel INT PRIMARY KEY,
+         nama VARCHAR(25),
+         alamat VARCHAR(25),
+         kesatuan VARCHAR(25),
+         agama VARCHAR(25));
